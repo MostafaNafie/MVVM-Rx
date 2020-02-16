@@ -7,14 +7,18 @@
 //
 
 import UIKit
+import RxSwift
 
 class MainViewController: UIViewController {
 
+	var mainViewModel = MainViewModel()
+	private let disposeBag = DisposeBag()
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		// Do any additional setup after loading the view.
+		
+		mainViewModel.fetchData()
 	}
-
-
+	
 }
 

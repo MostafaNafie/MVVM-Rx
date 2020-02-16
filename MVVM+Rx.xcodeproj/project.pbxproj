@@ -100,7 +100,8 @@
 		45EA4C6E23F9908E005ADF26 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				45EA4C7723F99547005ADF26 /* Network */,
+				45EA4C7D23F99547005ADF26 /* Response.swift */,
+				45EA4C7F23F99547005ADF26 /* Post.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -118,6 +119,7 @@
 		45EA4C7023F990A8005ADF26 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				45EA4C7723F99547005ADF26 /* Network */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -146,18 +148,8 @@
 				45EA4C7923F99547005ADF26 /* APIError.swift */,
 				45EA4C8123F99547005ADF26 /* APIRouter.swift */,
 				45EA4C7A23F99547005ADF26 /* APIClient.swift */,
-				45EA4C7B23F99547005ADF26 /* Responses */,
 			);
 			path = Network;
-			sourceTree = "<group>";
-		};
-		45EA4C7B23F99547005ADF26 /* Responses */ = {
-			isa = PBXGroup;
-			children = (
-				45EA4C7D23F99547005ADF26 /* Response.swift */,
-				45EA4C7F23F99547005ADF26 /* Post.swift */,
-			);
-			path = Responses;
 			sourceTree = "<group>";
 		};
 		4BD7618D56C93F3F4F28525A /* Frameworks */ = {
