@@ -11,5 +11,14 @@ import Foundation
 struct Post: Codable {
 	let user: String
 	let likes: Int
+	let userImageURL: String
 	let largeImageURL: String
+	
+	func getImageURL() -> URL {
+		return URL(string: largeImageURL)!
+	}
+	
+	func getUserImageURL() -> URL {
+		return URL(string: userImageURL)!
+	}
 }
