@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -23,10 +23,10 @@
 		45EA4C8D23F9B122005ADF26 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EA4C8C23F9B122005ADF26 /* ProfileViewController.swift */; };
 		45EA4C9223F9BC0C005ADF26 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EA4C9023F9BC0C005ADF26 /* PostCell.swift */; };
 		45EA4C9323F9BC0C005ADF26 /* PostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45EA4C9123F9BC0C005ADF26 /* PostCell.xib */; };
-		565D7BCBE0844A25B549D5C3 /* Pods_MVVM_Rx.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57A5EBB29AA78418A56FC916 /* Pods_MVVM_Rx.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		17F23968EFF72D6DCA08CEB7 /* libPods-MVVM+Rx.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MVVM+Rx.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		18CC3054F1617C83791720C1 /* Pods-MVVM+Rx.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVM+Rx.debug.xcconfig"; path = "Target Support Files/Pods-MVVM+Rx/Pods-MVVM+Rx.debug.xcconfig"; sourceTree = "<group>"; };
 		45EA4C5723F98FDF005ADF26 /* MVVM+Rx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MVVM+Rx.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		45EA4C5A23F98FDF005ADF26 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -46,6 +46,11 @@
 		45EA4C8C23F9B122005ADF26 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		45EA4C9023F9BC0C005ADF26 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		45EA4C9123F9BC0C005ADF26 /* PostCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostCell.xib; sourceTree = "<group>"; };
+		45EA4C9423F9E415005ADF26 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		45EA4C9823F9EFB3005ADF26 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		45EA4C9C23F9F12A005ADF26 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		45EA4CA023F9F29C005ADF26 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		45EA4CA223F9F358005ADF26 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		57A5EBB29AA78418A56FC916 /* Pods_MVVM_Rx.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MVVM_Rx.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FF214907EB58F7A4D8F3B7B /* Pods-MVVM+Rx.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVM+Rx.release.xcconfig"; path = "Target Support Files/Pods-MVVM+Rx/Pods-MVVM+Rx.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -55,7 +60,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				565D7BCBE0844A25B549D5C3 /* Pods_MVVM_Rx.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,7 +168,13 @@
 		4BD7618D56C93F3F4F28525A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				45EA4CA223F9F358005ADF26 /* Alamofire.framework */,
+				45EA4CA023F9F29C005ADF26 /* Alamofire.framework */,
+				45EA4C9C23F9F12A005ADF26 /* Alamofire.framework */,
+				45EA4C9823F9EFB3005ADF26 /* Alamofire.framework */,
+				45EA4C9423F9E415005ADF26 /* Alamofire.framework */,
 				57A5EBB29AA78418A56FC916 /* Pods_MVVM_Rx.framework */,
+				17F23968EFF72D6DCA08CEB7 /* libPods-MVVM+Rx.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -180,7 +190,6 @@
 				45EA4C5323F98FDF005ADF26 /* Sources */,
 				45EA4C5423F98FDF005ADF26 /* Frameworks */,
 				45EA4C5523F98FDF005ADF26 /* Resources */,
-				22149C58FA0B64AF45307D48 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -239,23 +248,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		22149C58FA0B64AF45307D48 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MVVM+Rx/Pods-MVVM+Rx-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MVVM+Rx/Pods-MVVM+Rx-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MVVM+Rx/Pods-MVVM+Rx-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		2B62E9A57DE287DC3DD18C4C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
