@@ -9,21 +9,23 @@
 /* Begin PBXBuildFile section */
 		45EA4C5B23F98FDF005ADF26 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EA4C5A23F98FDF005ADF26 /* AppDelegate.swift */; };
 		45EA4C5D23F98FDF005ADF26 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EA4C5C23F98FDF005ADF26 /* SceneDelegate.swift */; };
-		45EA4C5F23F98FDF005ADF26 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EA4C5E23F98FDF005ADF26 /* ViewController.swift */; };
+		45EA4C5F23F98FDF005ADF26 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EA4C5E23F98FDF005ADF26 /* MainViewController.swift */; };
 		45EA4C6223F98FDF005ADF26 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45EA4C6023F98FDF005ADF26 /* Main.storyboard */; };
 		45EA4C6423F98FE1005ADF26 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45EA4C6323F98FE1005ADF26 /* Assets.xcassets */; };
 		45EA4C6723F98FE1005ADF26 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45EA4C6523F98FE1005ADF26 /* LaunchScreen.storyboard */; };
+		45EA4C7423F9918F005ADF26 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EA4C7323F9918F005ADF26 /* MainViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		45EA4C5723F98FDF005ADF26 /* MVVM+Rx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MVVM+Rx.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		45EA4C5A23F98FDF005ADF26 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		45EA4C5C23F98FDF005ADF26 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		45EA4C5E23F98FDF005ADF26 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		45EA4C5E23F98FDF005ADF26 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		45EA4C6123F98FDF005ADF26 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		45EA4C6323F98FE1005ADF26 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		45EA4C6623F98FE1005ADF26 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		45EA4C6823F98FE1005ADF26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		45EA4C7323F9918F005ADF26 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,13 +60,54 @@
 			children = (
 				45EA4C5A23F98FDF005ADF26 /* AppDelegate.swift */,
 				45EA4C5C23F98FDF005ADF26 /* SceneDelegate.swift */,
-				45EA4C5E23F98FDF005ADF26 /* ViewController.swift */,
-				45EA4C6023F98FDF005ADF26 /* Main.storyboard */,
-				45EA4C6323F98FE1005ADF26 /* Assets.xcassets */,
-				45EA4C6523F98FE1005ADF26 /* LaunchScreen.storyboard */,
-				45EA4C6823F98FE1005ADF26 /* Info.plist */,
+				45EA4C6E23F9908E005ADF26 /* Model */,
+				45EA4C6F23F990A0005ADF26 /* View */,
+				45EA4C7123F990B3005ADF26 /* ViewModel */,
+				45EA4C7023F990A8005ADF26 /* Service */,
+				45EA4C7223F990BD005ADF26 /* HelpingFiles */,
 			);
 			path = "MVVM+Rx";
+			sourceTree = "<group>";
+		};
+		45EA4C6E23F9908E005ADF26 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		45EA4C6F23F990A0005ADF26 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				45EA4C6523F98FE1005ADF26 /* LaunchScreen.storyboard */,
+				45EA4C6023F98FDF005ADF26 /* Main.storyboard */,
+				45EA4C5E23F98FDF005ADF26 /* MainViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		45EA4C7023F990A8005ADF26 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		45EA4C7123F990B3005ADF26 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				45EA4C7323F9918F005ADF26 /* MainViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		45EA4C7223F990BD005ADF26 /* HelpingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				45EA4C6823F98FE1005ADF26 /* Info.plist */,
+				45EA4C6323F98FE1005ADF26 /* Assets.xcassets */,
+			);
+			path = HelpingFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +181,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				45EA4C5F23F98FDF005ADF26 /* ViewController.swift in Sources */,
+				45EA4C5F23F98FDF005ADF26 /* MainViewController.swift in Sources */,
 				45EA4C5B23F98FDF005ADF26 /* AppDelegate.swift in Sources */,
 				45EA4C5D23F98FDF005ADF26 /* SceneDelegate.swift in Sources */,
+				45EA4C7423F9918F005ADF26 /* MainViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,7 +330,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T7928YUM2A;
-				INFOPLIST_FILE = "MVVM+Rx/Info.plist";
+				INFOPLIST_FILE = "MVVM+Rx/HelpingFiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -304,7 +348,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T7928YUM2A;
-				INFOPLIST_FILE = "MVVM+Rx/Info.plist";
+				INFOPLIST_FILE = "MVVM+Rx/HelpingFiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
