@@ -11,15 +11,21 @@ import RxSwift
 import RxCocoa
 
 class ProfileViewController: UIViewController {
-
-	@IBOutlet weak var testlabel: UILabel!
+	
+	@IBOutlet weak var profileImage: UIImageView!
+	@IBOutlet weak var userName: UILabel!
+	@IBOutlet weak var postImage: UIImageView!
 	
 	var post: Post!
 	
     override func viewDidLoad() {
         super.viewDidLoad()
 		
-		testlabel.text = post.user
+		userName.text = post.user
+		profileImage.kf.setImage(with: post.getUserImageURL())
+		postImage.kf.setImage(with: post.getImageURL())
+		
+		profileImage.layer.cornerRadius = profileImage.frame.height / 2
     }
 
 }

@@ -6,6 +6,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="JF-Flat.ttf">
+            <string>JFFlat-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -64,19 +69,45 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sbE-hx-vuh">
-                                <rect key="frame" x="186" y="438" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="hny-0H-mMv">
+                                <rect key="frame" x="121.5" y="177.5" width="171.5" height="64"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IDE-Logo" translatesAutoresizingMaskIntoConstraints="NO" id="CfG-fx-qKr">
+                                        <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="CfG-fx-qKr" secondAttribute="height" id="0UF-Ad-T4a"/>
+                                            <constraint firstAttribute="width" constant="64" id="Fvl-Bq-25n"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User NAme" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TZ3-yL-02j">
+                                        <rect key="frame" x="84" y="0.0" width="87.5" height="64"/>
+                                        <fontDescription key="fontDescription" name="JFFlat-Regular" family="JF Flat" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hW4-KI-UiP">
+                                <rect key="frame" x="20.5" y="261.5" width="373" height="373"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="hW4-KI-UiP" secondAttribute="height" id="3S8-TM-jPX"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="hW4-KI-UiP" firstAttribute="width" secondItem="rrB-RC-hpB" secondAttribute="width" multiplier="0.9" id="FH7-Dw-uyS"/>
+                            <constraint firstItem="hW4-KI-UiP" firstAttribute="top" secondItem="hny-0H-mMv" secondAttribute="bottom" constant="20" id="NCw-ly-4ru"/>
+                            <constraint firstItem="hW4-KI-UiP" firstAttribute="centerX" secondItem="8eM-zt-X3u" secondAttribute="centerX" id="Rhr-bZ-CdZ"/>
+                            <constraint firstItem="hW4-KI-UiP" firstAttribute="centerY" secondItem="8eM-zt-X3u" secondAttribute="centerY" id="ZXB-x7-EHb"/>
+                            <constraint firstItem="hny-0H-mMv" firstAttribute="centerX" secondItem="hW4-KI-UiP" secondAttribute="centerX" id="dVW-Er-eQv"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="rrB-RC-hpB"/>
                     </view>
                     <connections>
-                        <outlet property="testlabel" destination="sbE-hx-vuh" id="iTR-5X-NLT"/>
+                        <outlet property="postImage" destination="hW4-KI-UiP" id="wr5-KH-WKt"/>
+                        <outlet property="profileImage" destination="CfG-fx-qKr" id="pAP-s8-0t0"/>
+                        <outlet property="userName" destination="TZ3-yL-02j" id="Xol-2F-abg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RrN-52-UOD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -84,4 +115,7 @@
             <point key="canvasLocation" x="858" y="120"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="IDE-Logo" width="16" height="16"/>
+    </resources>
 </document>
