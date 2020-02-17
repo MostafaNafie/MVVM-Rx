@@ -49,10 +49,10 @@ extension MainViewController {
 			.bind(to: tableView.rx.items(cellIdentifier: "PostCell", cellType: PostCell.self)) { row, model, cell in
 				cell.userName.text = model.user
 				cell.likes.text = String(model.likes)
-				cell.profileImage.kf.setImage(with: model.getUserImageURL())
+				cell.profileImage.kf.setImage(with: model.getUserImageURL(), placeholder: UIImage(named: "profile"))
 				cell.profileImage.contentMode = .scaleAspectFill
 				cell.profileImage.clipsToBounds = true
-				cell.postImage.kf.setImage(with: model.getImageURL())
+				cell.postImage.kf.setImage(with: model.getImageURL(), placeholder: UIImage(named: "placeholder"))
 //				print(model.user)
 				}.disposed(by: disposeBag)
 		
