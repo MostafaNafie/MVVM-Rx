@@ -11,6 +11,7 @@ import Foundation
 struct Post: Codable {
 	let user: String
 	let likes: Int
+	let tags: String
 	let userImageURL: String
 	let largeImageURL: String
 	
@@ -21,4 +22,15 @@ struct Post: Codable {
 	func getUserImageURL() -> URL {
 		return URL(string: userImageURL)!
 	}
+	
+	func getTags() -> String {
+		var result = ""
+		for tag in tags.split(separator: ",") {
+			var newTag = "#" + tag.trimmingCharacters(in: .whitespaces)
+			newTag = newTag.replacingOccurrences(of: " ", with: "_")
+			result += newTag + " "
+		}
+		return result.trimmingCharacters(in: .whitespaces)
+	}
+	
 }

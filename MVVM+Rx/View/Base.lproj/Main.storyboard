@@ -69,20 +69,47 @@
                                     <constraint firstAttribute="width" secondItem="hW4-KI-UiP" secondAttribute="height" id="3S8-TM-jPX"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#tag" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IiI-ZH-hyt">
+                                <rect key="frame" x="192" y="654.5" width="30" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zx5-O9-shh">
+                                <rect key="frame" x="142" y="812" width="130" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="130" id="Xha-8e-79h"/>
+                                </constraints>
+                                <state key="normal" title="Back to Timeline">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="backButtonTapped:" destination="wSa-wg-ARs" eventType="touchUpInside" id="fij-ay-0Dj"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="rrB-RC-hpB" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="IiI-ZH-hyt" secondAttribute="trailing" constant="10" id="2wD-fT-Ns2"/>
                             <constraint firstItem="hW4-KI-UiP" firstAttribute="width" secondItem="rrB-RC-hpB" secondAttribute="width" multiplier="0.9" id="FH7-Dw-uyS"/>
+                            <constraint firstItem="IiI-ZH-hyt" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="rrB-RC-hpB" secondAttribute="leading" constant="10" id="MYB-3C-U5J"/>
                             <constraint firstItem="hW4-KI-UiP" firstAttribute="top" secondItem="hny-0H-mMv" secondAttribute="bottom" constant="20" id="NCw-ly-4ru"/>
                             <constraint firstItem="hW4-KI-UiP" firstAttribute="centerX" secondItem="8eM-zt-X3u" secondAttribute="centerX" id="Rhr-bZ-CdZ"/>
+                            <constraint firstItem="IiI-ZH-hyt" firstAttribute="centerX" secondItem="hW4-KI-UiP" secondAttribute="centerX" id="UYG-5Q-geL"/>
                             <constraint firstItem="hW4-KI-UiP" firstAttribute="centerY" secondItem="8eM-zt-X3u" secondAttribute="centerY" id="ZXB-x7-EHb"/>
                             <constraint firstItem="hny-0H-mMv" firstAttribute="centerX" secondItem="hW4-KI-UiP" secondAttribute="centerX" id="dVW-Er-eQv"/>
+                            <constraint firstItem="zx5-O9-shh" firstAttribute="centerX" secondItem="8eM-zt-X3u" secondAttribute="centerX" id="dyd-hQ-uTt"/>
+                            <constraint firstItem="rrB-RC-hpB" firstAttribute="bottom" secondItem="zx5-O9-shh" secondAttribute="bottom" constant="20" id="wd7-ok-nuI"/>
+                            <constraint firstItem="IiI-ZH-hyt" firstAttribute="top" secondItem="hW4-KI-UiP" secondAttribute="bottom" constant="20" id="yPC-AW-nV1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rrB-RC-hpB"/>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="zx5-O9-shh" id="iRr-1T-s4e"/>
                         <outlet property="postImage" destination="hW4-KI-UiP" id="wr5-KH-WKt"/>
                         <outlet property="profileImage" destination="CfG-fx-qKr" id="pAP-s8-0t0"/>
+                        <outlet property="tagsLabel" destination="IiI-ZH-hyt" id="Ma4-7X-yTc"/>
                         <outlet property="userName" destination="TZ3-yL-02j" id="Xol-2F-abg"/>
                     </connections>
                 </viewController>
