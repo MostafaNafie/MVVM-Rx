@@ -123,8 +123,7 @@
 				45EA4C6023F98FDF005ADF26 /* Main.storyboard */,
 				45EA4C5E23F98FDF005ADF26 /* MainViewController.swift */,
 				45EA4C8C23F9B122005ADF26 /* ProfileViewController.swift */,
-				45EA4C9023F9BC0C005ADF26 /* PostCell.swift */,
-				45EA4C9123F9BC0C005ADF26 /* PostCell.xib */,
+				45EA4CB223FAA988005ADF26 /* PostCell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -163,6 +162,15 @@
 				45EA4C7A23F99547005ADF26 /* APIClient.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		45EA4CB223FAA988005ADF26 /* PostCell */ = {
+			isa = PBXGroup;
+			children = (
+				45EA4C9023F9BC0C005ADF26 /* PostCell.swift */,
+				45EA4C9123F9BC0C005ADF26 /* PostCell.xib */,
+			);
+			path = PostCell;
 			sourceTree = "<group>";
 		};
 		4BD7618D56C93F3F4F28525A /* Frameworks */ = {

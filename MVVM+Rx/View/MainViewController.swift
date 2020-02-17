@@ -13,13 +13,15 @@ import Kingfisher
 
 class MainViewController: UIViewController {
 
+	// MARK: - Outlets and Properties
+
 	@IBOutlet weak var tableView: UITableView!
 	
 	var mainViewModel = MainViewModel()
 	private let disposeBag = DisposeBag()
 	
-//	public var posts = PublishSubject<[Post]>()
-	
+	// MARK: - View Lifecycle
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
@@ -34,6 +36,8 @@ class MainViewController: UIViewController {
 	
 }
 
+// MARK: - Helper Functions
+
 extension MainViewController {
 	
 	private func setupBinding() {
@@ -47,25 +51,22 @@ extension MainViewController {
 			.posts
 			.observeOn(MainScheduler.instance)
 			.bind(to: tableView.rx.items(cellIdentifier: "PostCell", cellType: PostCell.self)) { row, model, cell in
-				cell.userName.text = model.user
-				cell.likes.text = String(model.likes)
-				cell.profileImage.kf.setImage(with: model.getUserImageURL(), placeholder: UIImage(named: "profile"))
-				cell.profileImage.contentMode = .scaleAspectFill
-				cell.profileImage.clipsToBounds = true
-				cell.postImage.kf.setImage(with: model.getImageURL(), placeholder: UIImage(named: "placeholder"))
 //				print(model.user)
+				cell.post = model
 				}.disposed(by: disposeBag)
 		
+		// Deselect an item when it is selected
 		tableView.rx.itemSelected
 			.subscribe(onNext: { [unowned self] indexPath in
 				self.tableView.deselectRow(at: indexPath, animated: true)}).disposed(by: disposeBag)
 		
+		// Get the model of the selected cell and inject it to the profile screen
 		tableView.rx.modelSelected(Post.self)
 			.subscribe(onNext: { [unowned self] post in
 //				print(post)
 				self.goToProfileScreen(for: post)
-				
 			}).disposed(by: disposeBag)
+		
 	}
 	
 	private func goToProfileScreen(for post: Post) {

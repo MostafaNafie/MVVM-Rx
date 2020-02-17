@@ -12,20 +12,37 @@ import RxCocoa
 
 class ProfileViewController: UIViewController {
 	
-	@IBOutlet weak var profileImage: UIImageView!
+	// MARK: - Outlets and Properties
+
 	@IBOutlet weak var userName: UILabel!
+	@IBOutlet weak var profileImage: UIImageView!
 	@IBOutlet weak var postImage: UIImageView!
 	
 	var post: Post!
 	
+	// MARK: - View Lifecycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
 		
-		userName.text = post.user
-		profileImage.kf.setImage(with: post.getUserImageURL())
-		postImage.kf.setImage(with: post.getImageURL())
-		
-		profileImage.layer.cornerRadius = profileImage.frame.height / 2
+		displayData()
+		setupUI()
     }
 
+}
+
+// MARK: - Helper Functions
+
+extension ProfileViewController {
+	
+	private func displayData() {
+		userName.text = post.user
+		profileImage.kf.setImage(with: post.getUserImageURL(), placeholder: UIImage(named: "profile"))
+		postImage.kf.setImage(with: post.getImageURL(), placeholder: UIImage(named: "placeholder"))
+	}
+	
+	private func setupUI() {
+		profileImage.layer.cornerRadius = profileImage.frame.height / 2
+	}
+	
 }

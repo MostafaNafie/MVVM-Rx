@@ -11,10 +11,9 @@ import RxSwift
 
 class MainViewModel {
 	
-	private let disposeBag = DisposeBag()
 	public let posts : PublishSubject<[Post]> = PublishSubject()
+	private let disposeBag = DisposeBag()
 
-	
 	func fetchData() {
 		ApiClient.getPosts()
 			.observeOn(MainScheduler.instance)

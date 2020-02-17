@@ -15,19 +15,29 @@ class PostCell: UITableViewCell {
 	@IBOutlet weak var likes: UILabel!
 	@IBOutlet weak var postImage: UIImageView!
 	
+	var post: Post! {
+		didSet {
+			displayData()
+			setupUI()
+		}
+	}
+    
+}
+
+// MARK: - Helper Functions
+
+extension PostCell {
 	
-	override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-		
+	private func displayData() {
+		userName.text = post.user
+		likes.text = String(post.likes)
+		profileImage.kf.setImage(with: post.getUserImageURL(), placeholder: UIImage(named: "profile"))
+		postImage.kf.setImage(with: post.getImageURL(), placeholder: UIImage(named: "placeholder"))
+	}
+	
+	private func setupUI() {
 		profileImage.layer.cornerRadius = profileImage.frame.height / 2
 		postImage.layer.cornerRadius = 14
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
+	}
+	
 }
