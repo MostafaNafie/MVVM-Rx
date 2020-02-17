@@ -18,6 +18,7 @@ class MainViewController: UIViewController {
 	@IBOutlet weak var tableView: UITableView!
 	
 	var mainViewModel = MainViewModel()
+	private var activityIndicator: UIActivityIndicatorView!
 	private let disposeBag = DisposeBag()
 	
 	// MARK: - View Lifecycle
@@ -25,13 +26,12 @@ class MainViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		mainViewModel.fetchData()
-	}
-	
-	override func viewWillAppear(_ animated: Bool) {
-		super.viewWillAppear(animated)
+		// Initialize and setup the activity indicator
+		activityIndicator = UIActivityIndicatorView()
+		setup(activityIndicator: activityIndicator)
 		
 		setupBinding()
+		mainViewModel.fetchData()
 	}
 	
 }
@@ -42,6 +42,17 @@ extension MainViewController {
 	
 	private func setupBinding() {
 		
+		mainViewModel.isLoading
+			.subscribe(onNext: { [unowned self] isLoading in
+			if isLoading {
+				self.activityIndicator.startAnimating()
+				self.tableView.isHidden = true
+			} else {
+				self.activityIndicator.stopAnimating()
+				self.tableView.isHidden = false
+				}
+			}).disposed(by: disposeBag)
+
 		// Register the custom cell
 		let nib = UINib(nibName: "PostCell", bundle: nil)
 		tableView.register(nib, forCellReuseIdentifier: "PostCell")
@@ -67,6 +78,12 @@ extension MainViewController {
 				self.goToProfileScreen(for: post)
 			}).disposed(by: disposeBag)
 		
+	}
+	
+	private func setup(activityIndicator: UIActivityIndicatorView) {
+		activityIndicator.color = UIColor(red:0.25, green:0.72, blue:0.85, alpha:1.0)
+		activityIndicator.center = self.view.center
+		self.view.addSubview(activityIndicator)
 	}
 	
 	private func goToProfileScreen(for post: Post) {

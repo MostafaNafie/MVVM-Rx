@@ -12,15 +12,18 @@ import RxSwift
 class MainViewModel {
 	
 	public let posts : PublishSubject<[Post]> = PublishSubject()
+	public let isLoading: PublishSubject<Bool> = PublishSubject()
 	private let disposeBag = DisposeBag()
 
 	func fetchData() {
+		isLoading.onNext(true)
 		ApiClient.getPosts()
 			.observeOn(MainScheduler.instance)
 			.subscribe(onNext: { [unowned self] response in
 				print("Endpoint Called Successfully")
 //				print(response)
 				self.posts.onNext(response.hits)
+				self.isLoading.onNext(false)
 				}, onError: { error in
 					switch error {
 					case APIError.conflict:
