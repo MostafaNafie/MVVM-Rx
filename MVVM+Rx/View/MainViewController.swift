@@ -44,13 +44,7 @@ extension MainViewController {
 		
 		mainViewModel.isLoading
 			.subscribe(onNext: { [unowned self] isLoading in
-			if isLoading {
-				self.activityIndicator.startAnimating()
-				self.tableView.isHidden = true
-			} else {
-				self.activityIndicator.stopAnimating()
-				self.tableView.isHidden = false
-				}
+				self.updateUI(isLoading: isLoading)
 			}).disposed(by: disposeBag)
 
 		// Register the custom cell
@@ -90,6 +84,18 @@ extension MainViewController {
 		let profileVC = storyboard?.instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController
 		profileVC.post = post
 		present(profileVC, animated: true, completion: nil)
+	}
+	
+	private func updateUI(isLoading: Bool) {
+		DispatchQueue.main.async {
+			if isLoading {
+				self.activityIndicator.startAnimating()
+				self.tableView.isHidden = true
+			} else {
+				self.activityIndicator.stopAnimating()
+				self.tableView.isHidden = false
+			}
+		}
 	}
 	
 }
