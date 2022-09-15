@@ -12,9 +12,8 @@ import RxCocoa
 import Kingfisher
 
 class MainViewController: UIViewController {
-
 	// MARK: - Outlets and Properties
-	@IBOutlet weak var tableView: UITableView!
+	@IBOutlet private weak var tableView: UITableView!
 	
 	private let mainViewModel = MainViewModel() // In a real project the ViewModel should be injected
 	private let activityIndicator = UIActivityIndicatorView()
@@ -49,9 +48,8 @@ extension MainViewController {
 		// Bind the posts in the ViewModel to the DataSource of the TableView
 		mainViewModel
 			.posts
-			.observeOn(MainScheduler.instance)
+            .debug("posts")
 			.bind(to: tableView.rx.items(cellIdentifier: "PostCell", cellType: PostCell.self)) { row, model, cell in
-//				print(model.user)
 				cell.post = model
             }
             .disposed(by: disposeBag)
@@ -67,8 +65,8 @@ extension MainViewController {
 		// Get the model of the selected cell and inject it to the profile screen
 		tableView.rx
             .modelSelected(Post.self)
+            .debug("modelSelected")
 			.subscribe(onNext: { [unowned self] post in
-//				print(post)
 				self.goToProfileScreen(for: post)
 			})
             .disposed(by: disposeBag)
