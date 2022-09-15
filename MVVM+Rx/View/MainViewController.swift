@@ -23,18 +23,21 @@ class MainViewController: UIViewController {
 	// MARK: - View Lifecycle
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		
-		// Setup the activity indicator
-		setup(activityIndicator: activityIndicator)
-		
+        setupActivityIndicator()
+        setupTableView()
 		setupBinding()
 		mainViewModel.fetchData()
 	}
-	
 }
 
 // MARK: - Helper Functions
 extension MainViewController {
+    private func setupTableView() {
+        // Register the custom cell
+        let nib = UINib(nibName: "PostCell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: "PostCell")
+    }
+    
 	private func setupBinding() {
 		mainViewModel
             .isLoading
@@ -42,10 +45,6 @@ extension MainViewController {
 				self.updateUI(isLoading: isLoading)
 			})
             .disposed(by: disposeBag)
-
-		// Register the custom cell
-		let nib = UINib(nibName: "PostCell", bundle: nil)
-		tableView.register(nib, forCellReuseIdentifier: "PostCell")
 				
 		// Bind the posts in the ViewModel to the DataSource of the TableView
 		mainViewModel
@@ -54,7 +53,7 @@ extension MainViewController {
 			.bind(to: tableView.rx.items(cellIdentifier: "PostCell", cellType: PostCell.self)) { row, model, cell in
 //				print(model.user)
 				cell.post = model
-				}
+            }
             .disposed(by: disposeBag)
 		
 		// Deselect an item when it is selected
@@ -75,7 +74,7 @@ extension MainViewController {
             .disposed(by: disposeBag)
 	}
 	
-	private func setup(activityIndicator: UIActivityIndicatorView) {
+	private func setupActivityIndicator() {
 		activityIndicator.color = UIColor(red:0.25, green:0.72, blue:0.85, alpha:1.0)
 		activityIndicator.center = self.view.center
 		self.view.addSubview(activityIndicator)
