@@ -1,9 +1,9 @@
 //
 //  Response.swift
-//  IDE Porject
+//  IDE Project
 //
 //  Created by Mustafa on 6/2/20.
-//  Copyright © 2020 IDEAcademy. All rights reserved.
+//  Copyright © 2020 Mustafa Nafie. All rights reserved.
 //
 
 import Foundation

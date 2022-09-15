@@ -1,9 +1,9 @@
 //
 //  APIClient.swift
-//  IDE Porject
+//  IDE Project
 //
 //  Created by Mustafa on 31/1/20.
-//  Copyright © 2020 IDEAcademy. All rights reserved.
+//  Copyright © 2020 Mustafa Nafie. All rights reserved.
 //
 
 import Foundation
@@ -11,7 +11,6 @@ import Alamofire
 import RxSwift
 
 class ApiClient {
-	
 	static func getPosts() -> Observable<Response> {
 		return request(APIRouter.getPosts)
 	}

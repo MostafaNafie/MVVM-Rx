@@ -14,20 +14,17 @@ import Kingfisher
 class MainViewController: UIViewController {
 
 	// MARK: - Outlets and Properties
-
 	@IBOutlet weak var tableView: UITableView!
 	
-	var mainViewModel = MainViewModel()
-	private var activityIndicator: UIActivityIndicatorView!
+	private let mainViewModel = MainViewModel() // In a real project the ViewModel should be injected
+	private let activityIndicator = UIActivityIndicatorView()
 	private let disposeBag = DisposeBag()
 	
 	// MARK: - View Lifecycle
-
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		// Initialize and setup the activity indicator
-		activityIndicator = UIActivityIndicatorView()
+		// Setup the activity indicator
 		setup(activityIndicator: activityIndicator)
 		
 		setupBinding()
@@ -37,15 +34,14 @@ class MainViewController: UIViewController {
 }
 
 // MARK: - Helper Functions
-
 extension MainViewController {
-	
 	private func setupBinding() {
-		
-		mainViewModel.isLoading
+		mainViewModel
+            .isLoading
 			.subscribe(onNext: { [unowned self] isLoading in
 				self.updateUI(isLoading: isLoading)
-			}).disposed(by: disposeBag)
+			})
+            .disposed(by: disposeBag)
 
 		// Register the custom cell
 		let nib = UINib(nibName: "PostCell", bundle: nil)
@@ -58,20 +54,25 @@ extension MainViewController {
 			.bind(to: tableView.rx.items(cellIdentifier: "PostCell", cellType: PostCell.self)) { row, model, cell in
 //				print(model.user)
 				cell.post = model
-				}.disposed(by: disposeBag)
+				}
+            .disposed(by: disposeBag)
 		
 		// Deselect an item when it is selected
-		tableView.rx.itemSelected
+		tableView.rx
+            .itemSelected
 			.subscribe(onNext: { [unowned self] indexPath in
-				self.tableView.deselectRow(at: indexPath, animated: true)}).disposed(by: disposeBag)
+				self.tableView.deselectRow(at: indexPath, animated: true)}
+            )
+            .disposed(by: disposeBag)
 		
 		// Get the model of the selected cell and inject it to the profile screen
-		tableView.rx.modelSelected(Post.self)
+		tableView.rx
+            .modelSelected(Post.self)
 			.subscribe(onNext: { [unowned self] post in
 //				print(post)
 				self.goToProfileScreen(for: post)
-			}).disposed(by: disposeBag)
-		
+			})
+            .disposed(by: disposeBag)
 	}
 	
 	private func setup(activityIndicator: UIActivityIndicatorView) {
@@ -87,16 +88,13 @@ extension MainViewController {
 	}
 	
 	private func updateUI(isLoading: Bool) {
-		DispatchQueue.main.async {
-			if isLoading {
-				self.activityIndicator.startAnimating()
-				self.tableView.isHidden = true
-			} else {
-				self.activityIndicator.stopAnimating()
-				self.tableView.isHidden = false
-			}
-		}
+        if isLoading {
+            self.activityIndicator.startAnimating()
+            self.tableView.isHidden = true
+        } else {
+            self.activityIndicator.stopAnimating()
+            self.tableView.isHidden = false
+        }
 	}
-	
 }
 
